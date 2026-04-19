@@ -1,0 +1,358 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1f7a3f">
+<title>Damsani Farms</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#f5f5f5;
+  color:#222;
+  padding-bottom:80px;
+}
+
+/* Header */
+header{
+  background:#1f7a3f;
+  color:#fff;
+  text-align:center;
+  padding:15px;
+  font-size:22px;
+  font-weight:bold;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+/* Banner */
+.banner{
+  background:url('https://img.freepik.com/premium-photo/buffalo-farm-ukrainian-carpathians-mountains-nature-concept_73990-1921.jpg?w=1200') center/cover no-repeat;
+  height:240px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:15px;
+}
+
+.banner h2{
+  font-size:28px;
+  text-shadow:0 2px 5px rgba(0,0,0,0.5);
+}
+
+.banner p{
+  margin-top:8px;
+  font-size:16px;
+  text-shadow:0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Right Side Timing Box */
+.timing{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:rgba(0,0,0,0.55);
+  padding:10px 14px;
+  border-radius:12px;
+  text-align:left;
+  font-size:14px;
+  line-height:1.6;
+  min-width:170px;
+}
+
+/* Container */
+.container{
+  width:100%;
+  max-width:500px;
+  margin:auto;
+  padding:12px;
+}
+
+/* Product Card */
+.product{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  margin-bottom:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.product img{
+  width:110px;
+  height:110px;
+  object-fit:cover;
+}
+
+.details{
+  padding:12px;
+  flex:1;
+}
+
+.details h3{
+  font-size:20px;
+}
+
+.price{
+  color:#1f7a3f;
+  font-weight:bold;
+  margin-top:6px;
+}
+
+/* Qty */
+.qty-box{
+  display:flex;
+  align-items:center;
+  margin-top:12px;
+}
+
+.qty-box button{
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:8px;
+  background:#1f7a3f;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.qty-box span{
+  margin:0 14px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* Cart */
+.cart{
+  background:#fff;
+  border-radius:14px;
+  padding:14px;
+  margin-top:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.cart h3{
+  margin-bottom:10px;
+}
+
+.cart p{
+  margin-bottom:6px;
+  font-size:15px;
+}
+
+.total{
+  margin-top:10px;
+  font-size:20px;
+  font-weight:bold;
+  color:#e67e22;
+}
+
+/* Inputs */
+input,select{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-top:12px;
+  font-size:16px;
+  background:white;
+}
+
+/* Button */
+.order-btn{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  border:none;
+  background:#e67e22;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+  padding:16px;
+  cursor:pointer;
+}
+
+.order-btn:active{
+  background:#cf6c15;
+}
+
+/* Mobile */
+@media(max-width:480px){
+
+  .banner{
+    height:230px;
+  }
+
+  .banner h2{
+    font-size:24px;
+  }
+
+  .product img{
+    width:95px;
+    height:95px;
+  }
+
+  .details h3{
+    font-size:18px;
+  }
+
+  .timing{
+    top:10px;
+    right:10px;
+    font-size:12px;
+    padding:8px 10px;
+    min-width:145px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>Damsani Farms</header>
+
+<div class="banner">
+
+  <div class="timing">
+    🕒 <b>Timings</b><br>
+    🌅 Morning: 5:30 AM - 9:30 AM<br>
+    🌙 Evening: 5:30 PM - 9:30 PM
+  </div>
+
+  <h2>Fresh Buffalo Milk</h2>
+  <p>Direct from Farm to Home</p>
+
+</div>
+
+<div class="container">
+
+  <!-- Product -->
+  <div class="product">
+    <img src="https://img.freepik.com/premium-photo/milk-glass-splash_932514-5249.jpg?w=300" alt="Milk">
+
+    <div class="details">
+      <h3>Buffalo Milk</h3>
+      <div class="price">₹100 / Litre</div>
+
+      <div class="qty-box">
+        <button onclick="changeQty('Buffalo Milk',100,-1)">−</button>
+        <span id="Buffalo Milk">0</span>
+        <button onclick="changeQty('Buffalo Milk',100,1)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart -->
+  <div class="cart">
+    <h3>🛒 Your Order</h3>
+    <div id="cartItems">No items selected</div>
+    <div class="total">Total: ₹<span id="total">0</span></div>
+  </div>
+
+  <!-- Customer Form -->
+  <input type="text" id="name" placeholder="Enter Customer Name">
+  <input type="text" id="address" placeholder="Enter Full Address">
+
+  <select id="delivery">
+    <option>Morning Delivery</option>
+    <option>Evening Delivery</option>
+  </select>
+
+</div>
+
+<button class="order-btn" onclick="placeOrder()">Place Order via WhatsApp</button>
+
+<script>
+let cart = {};
+let total = 0;
+
+function changeQty(name, price, change){
+
+  if(!cart[name]){
+    cart[name] = {qty:0, price:price};
+  }
+
+  cart[name].qty += change;
+
+  if(cart[name].qty <= 0){
+    delete cart[name];
+    document.getElementById(name).innerText = 0;
+  }
+
+  updateCart();
+}
+
+function updateCart(){
+
+  let cartHTML = "";
+  total = 0;
+
+  for(let item in cart){
+
+    let qty = cart[item].qty;
+    let price = cart[item].price;
+
+    document.getElementById(item).innerText = qty;
+
+    cartHTML += `<p>${item} - ${qty} Litre = ₹${qty*price}</p>`;
+
+    total += qty * price;
+  }
+
+  if(cartHTML === ""){
+    cartHTML = "No items selected";
+  }
+
+  document.getElementById("cartItems").innerHTML = cartHTML;
+  document.getElementById("total").innerText = total;
+}
+
+function placeOrder(){
+
+  let name = document.getElementById("name").value.trim();
+  let address = document.getElementById("address").value.trim();
+  let delivery = document.getElementById("delivery").value;
+
+  if(name === "" || address === "" || total === 0){
+    alert("Please fill all details and select quantity.");
+    return;
+  }
+
+  let message = "Damsani Farms Order:%0A%0A";
+
+  for(let item in cart){
+
+    let qty = cart[item].qty;
+    let price = cart[item].price;
+
+    message += `${item} - ${qty} Litre = ₹${qty*price}%0A`;
+  }
+
+  message += `%0ATotal: ₹${total}`;
+  message += `%0AName: ${name}`;
+  message += `%0AAddress: ${address}`;
+  message += `%0ADelivery: ${delivery}`;
+
+  let phone = "917660030116";
+  let url = "https://wa.me/" + phone + "?text=" + message;
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
